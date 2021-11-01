@@ -118,8 +118,8 @@ function Canvas(props) {
                index: helperIdx + 1,
                comment: "",
                commentIndex: commentIndex + 1,
-               xPercent: area.startX / (clientWidth * 1.7825),
-               yPercent: area.startY / (clientWidth * 1.77),
+               xPercent: area.startX / (clientWidth * 1.7885),
+               yPercent: area.startY / (clientWidth * 1.7825),
             });
 
             setHelpers([...helpers, helper]);
@@ -135,10 +135,10 @@ function Canvas(props) {
                index: helperIdx + 1,
                comment: "",
                commentIndex: commentIndex + 1,
-               xPercent: area.startX / (clientWidth * 1.7825),
-               yPercent: area.startY / (clientWidth * 1.7825),
-               xWidth: area.width / (clientWidth * 1.7825),
-               yHeight: area.height / (clientWidth * 1.7825),
+               xPercent: area.startX / (clientWidth * 1.7875),
+               yPercent: area.startY / (clientWidth * 1.7875),
+               xWidth: area.width / (clientWidth * 1.7875),
+               yHeight: area.height / (clientWidth * 1.7875),
             });
 
             let newHelpers = [...helpers, helper];

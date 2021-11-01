@@ -5,7 +5,7 @@ export default function BackDrop({ show, clicked, overlay }) {
        width: "100%",
        height: "100%",
        position: "fixed",
-       zIndex: 100,
+       zIndex: 2100,
        left: 0,
        top: 0,
     };

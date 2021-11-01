@@ -95,7 +95,7 @@ export default function App({ window }) {
       const canvas = canvasRef.current;
       canvas.width = window.outerWidth;
       canvas.height = window.innerHeight;
-      canvas.style.zIndex = 99;
+      canvas.style.zIndex = 2099;
       canvas.style.cursor = "crosshair";
 
       const context = canvas.getContext("2d");
@@ -203,7 +203,7 @@ export default function App({ window }) {
                hlpr.startX > clientWidth / 2
                   ? hlpr.startX + hlpr.width - 235
                   : hlpr.startX,
-            zIndex: 251,
+            zIndex: 2251,
          };
          if (
             hlpr.startY + hlpr.height + commentHeight > vh &&
@@ -225,7 +225,7 @@ export default function App({ window }) {
                hlpr.startX > clientWidth / 2
                   ? hlpr.startX - 245
                   : hlpr.startX,
-            zIndex: 251,
+            zIndex: 2251,
          };
       }
 
@@ -375,7 +375,7 @@ export default function App({ window }) {
                top: 0,
                width: "100%",
                height: "100%",
-               zIndex: 200,
+               zIndex: 2200,
             }}
          >
             <Canvas
@@ -397,7 +397,7 @@ export default function App({ window }) {
                   top: 0,
                   width: `${document.documentElement.scrollWidth}px`,
                   height: "0",
-                  zIndex: 199,
+                  zIndex: 2199,
                }}
             >
                <BackDrop
@@ -487,7 +487,7 @@ export default function App({ window }) {
             style={{
                width: "100%",
                height: "100%",
-               zIndex: 98,
+               zIndex: 2098,
                position: "fixed",
                left: 0,
                top: 0,
@@ -510,7 +510,7 @@ export default function App({ window }) {
                </div>
                <div
                   className="tools-wrapper"
-                  style={{ position: "fixed", zIndex: 250 }}
+                  style={{ position: "fixed", zIndex: 2250 }}
                   data-html2canvas-ignore
                >
                   <div
