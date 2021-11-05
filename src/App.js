@@ -237,14 +237,14 @@ export default function App({ window }) {
       prepareCanvas();
    };
 
-   const onSubmit = async () => {
-      try {
-         setIssueSubmitting(true);
-         printableCanvas();
-
-         var canvas = document.createElement("canvas");
+   const imageToBlob = async (syncImg) => {
+      var canvas = document.createElement("canvas");
          canvas.width = canvasRef.current.width * 2;
          canvas.height = canvasRef.current.height * 2;
+
+         if (!syncImg) {
+            printableCanvas();
+         }
 
          let image = await html2canvas(document.body, {
             scale: 2,
@@ -253,6 +253,12 @@ export default function App({ window }) {
             windowWidth: window.innerWidth,
             x: window.scrollX,
             y: window.scrollY,
+            ignoreElements: function (element) {
+               /* Remove element with id="canvas-shapes" */
+               if ("canvas-shapes" == element.id && !syncImg) {
+                   return true;
+               }
+           },
          });
 
          const blob = await new Promise((resolve) =>
@@ -260,7 +266,7 @@ export default function App({ window }) {
          );
 
          const formData = new FormData();
-         formData.append("file", blob, "filename.png");
+         formData.append("file", blob, `${Math.floor(new Date().getTime() / 1000)}.png`);
 
          const uploadedFile = await fetch(
             `${process.env.REACT_APP_API_BASE}/api/files/`,
@@ -272,6 +278,17 @@ export default function App({ window }) {
 
          const fileData = await uploadedFile.json();
 
+         return fileData?.data
+
+}
+
+   const onSubmit = async () => {
+      try {
+         setIssueSubmitting(true);
+         
+         const uploadedSyncFile = await imageToBlob(true);
+         const uploadedFile = await imageToBlob(false);
+
          const comments = helpers.map((item) => {
             const obj = Object.assign({});
             obj["description"] = item.comment;
@@ -281,9 +298,10 @@ export default function App({ window }) {
          });
 
          const issueData = {
-            title: "test",
-            description: "test",
-            image: fileData?.data.id,
+            title: null,
+            description: null,
+            image: uploadedFile?.id,
+            sync_image: uploadedSyncFile?.id,
             reported_by: selectedTester,
             comments,
          };

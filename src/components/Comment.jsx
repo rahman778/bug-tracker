@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Comment({ onAddComment, helper, deleteElement, onSubmitComment, commentError, selectedTester }) {
    return (
-      <div data-html2canvas-ignore className="comment-wrapper" style={{ width: 235, height: "auto" }}>
+      <div id="canvas-shapes" className="comment-wrapper" style={{ width: 235, height: "auto" }}>
          <div className="top-actions">
             <div className="d-flex align-items-center">
                <img src="/assets/comment.svg" alt="" />
