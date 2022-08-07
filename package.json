@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "build": "./node_modules/.bin/webpack --config webpack.config.js",
-    "build-release": "./node_modules/.bin/webpack --config webpack.config.js --env.prod",
+    "build-release": "webpack",
     "start": "./node_modules/.bin/webpack-dev-server --open"
   },
   "author": "",

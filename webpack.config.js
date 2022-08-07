@@ -1,7 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
 var copyWebpackPlugin = require("copy-webpack-plugin");
-const bundleOutputDir = "./dist";
 const WebpackBundleAnalyzer = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
@@ -12,10 +11,10 @@ module.exports = (env) => {
    return [
       {
          entry: "./src/index.js",
-         //mode: "production",
+         mode: "development",
          output: {
             filename: "widget.js",
-            path: path.resolve(bundleOutputDir),
+            path: path.resolve(__dirname, 'dist')
          },
          devServer: {
             port: 3000,
