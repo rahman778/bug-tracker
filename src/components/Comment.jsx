@@ -31,8 +31,6 @@ export default function Comment({ onAddComment, helper, deleteElement, onSubmitC
                   id=""
                   value={helper.comment}
                   onChange={(e) => onAddComment(e, helper.commentIndex)}
-                  name=""
-                  id=""
                   rows="3"
                ></textarea>
             </div>
