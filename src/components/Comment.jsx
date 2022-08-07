@@ -5,7 +5,7 @@ export default function Comment({ onAddComment, helper, deleteElement, onSubmitC
       <div id="canvas-shapes" className="comment-wrapper" style={{ width: 235, height: "auto" }}>
          <div className="top-actions">
             <div className="d-flex align-items-center">
-               <img src="/assets/comment.svg" alt="" />
+               <img src="/assets/comment.svg" alt="" width={20}/>
                <span className="top-text">Report a Bug</span>
             </div>
             <img style={{ cursor: "pointer" }} onClick={() => deleteElement(helper.index)} src="/assets/delete.svg" alt="" />
