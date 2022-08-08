@@ -41,7 +41,7 @@ export default function App({ window }) {
    const [commentError, setCommentError] = useState(null);
 
    useEffect(() => {
-      getWidgetData();
+      //getWidgetData();
    }, [window]);
 
    const getWidgetData = async () => {
@@ -308,17 +308,17 @@ export default function App({ window }) {
 
          if (selectedTester === "") delete issueData.reported_by;
 
-         const addIssue = await fetch(
-            `${process.env.REACT_APP_API_BASE}/api/widget/issues/`,
-            {
-               method: "POST",
-               headers: {
-                  "X-API-KEY": queue[0]?.apiKey,
-                  "Content-Type": "application/json",
-               },
-               body: JSON.stringify(issueData),
-            }
-         );
+         // const addIssue = await fetch(
+         //    `${process.env.REACT_APP_API_BASE}/api/widget/issues/`,
+         //    {
+         //       method: "POST",
+         //       headers: {
+         //          "X-API-KEY": queue[0]?.apiKey,
+         //          "Content-Type": "application/json",
+         //       },
+         //       body: JSON.stringify(issueData),
+         //    }
+         // );
       } catch (error) {
          console.log(error);
       } finally {
@@ -381,7 +381,7 @@ export default function App({ window }) {
       }
    };
 
-   if (!initializeWidget) return null;
+   //if (!initializeWidget) return null;
 
    return (
       <div className="widget-wrapper">
@@ -564,7 +564,7 @@ export default function App({ window }) {
                   className="start-inner"
                   onClick={() => setIsExpanded(!isExpanded)}
                >
-                  <img src="/assets/comment.svg" alt="" />
+                  <img src="/assets/comment.svg" alt="" width={20}/>
                   <span>Report a Bug</span>
                </div>
 
@@ -574,9 +574,9 @@ export default function App({ window }) {
                   }`}
                >
                   <div className="item-body">
-                     <div className="mb-4">
-                        <label htmlFor="">reporter</label>
-                        <div className="">
+                     <div className="mb-3 mt-2">
+                        <label htmlFor="">Reporter</label>
+                        {/* <div className="">
                            <select
                               name=""
                               className="form-control"
@@ -593,6 +593,16 @@ export default function App({ window }) {
                                  </option>
                               ))}
                            </select>
+                        </div> */}
+
+                        <div className="">
+                           <input
+                              name=""
+                              className="form-control"
+                              id=""
+                              type={"text"}
+                           />
+                              
                         </div>
                      </div>
 
